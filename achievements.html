@@ -1,178 +1,121 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-
+<!doctype html>
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Achievements - Anup Barman</title>
-  <!-- Removed old styles.css for consistency; use only main.css -->
-  <link rel="stylesheet" href="assets/css/main.css" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Competitive programming achievements, contest experience, and problem setting work by Anup Barman.">
+  <meta name="keywords" content="Anup Barman, ICPC Dhaka Regional, Codeforces, AtCoder, CodeChef, competitive programming achievements">
+  <title>Achievements — Anup Barman</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
   <script>
-    // Ensure Chart.js uses the dark theme by default
-    Chart.defaults.color = '#fff';
-    Chart.defaults.borderColor = 'rgba(255,255,255,0.1)';
+    (() => {
+      const saved = localStorage.getItem('anup-theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.dataset.theme = saved || (prefersDark ? 'dark' : 'light');
+    })();
   </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <!-- Removed inline nav styles for consistency; handled in main.css -->
 </head>
-
-<body class="text-slate-100 bg-gradient-to-br from-[#181f2a] via-[#232946] to-[#181f2a] min-h-screen">
-  <!-- Navbar -->
-  <header class="bg-[#181f2a]/90 backdrop-blur-lg sticky top-0 z-50 shadow-lg border-b border-cyan-400/60">
-    <nav class="container mx-auto px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center">
-      <a href="index.html" class="text-xl sm:text-2xl font-bold text-cyan-200"></a>
-      <div class="hidden md:flex space-x-4 lg:space-x-8 items-center">
-        <a href="index.html" class="nav-link text-cyan-200 hover:text-cyan-400 text-sm lg:text-base">Home</a>
-        <a href="achievements.html"
-          class="nav-link text-cyan-200 hover:text-cyan-400 text-sm lg:text-base">Achievements</a>
-        <a href="gallery.html" class="nav-link text-cyan-200 hover:text-cyan-400 text-sm lg:text-base">Gallery</a>
-      </div>
-      <button id="mobile-menu-button" class="md:hidden p-1">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-        </svg>
-      </button>
-    </nav>
-    <div id="mobile-menu" class="hidden md:hidden px-4 sm:px-6 pb-3 sm:pb-4">
-      <a href="index.html" class="block py-2 text-sm text-cyan-200 hover:text-cyan-400 nav-link">Home</a>
-      <a href="achievements.html" class="block py-2 text-sm text-cyan-200 hover:text-cyan-400 nav-link">Achievements</a>
-      <a href="gallery.html" class="block py-2 text-sm text-cyan-200 hover:text-cyan-400 nav-link">Gallery</a>
+<body data-page="achievements">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Anup Barman home">
+        <span class="brand-mark" aria-hidden="true">AB</span>
+        <span class="brand-copy"><strong>Anup Barman</strong><small>Competitive programmer</small></span>
+      </a>
+      <button class="mobile-menu-button" type="button" aria-label="Open navigation" aria-expanded="false" data-mobile-menu-button><span></span><span></span><span></span></button>
+      <nav class="primary-nav" aria-label="Primary navigation" data-mobile-menu>
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link is-active" href="achievements.html" aria-current="page">Achievements</a>
+        <a class="nav-link" href="gallery.html">Gallery</a>
+        <a class="nav-link nav-link-contact" href="index.html#contact">Let’s connect <span aria-hidden="true">↗</span></a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" title="Switch to dark mode"><span class="theme-icon theme-icon-sun" aria-hidden="true">☼</span><span class="theme-icon theme-icon-moon" aria-hidden="true">◐</span></button>
     </div>
   </header>
-  <main class="container mx-auto px-6">
-    <section class="py-16 md:py-20">
-      <h2 class="text-4xl font-extrabold text-center text-[#e0e7ef] mb-12 tracking-tight">Competitive Programming
-        Achievements</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
-        <!-- Codeforces -->
-        <div
-          class="rounded-2xl shadow-xl border border-cyan-400/30 bg-[#232946]/70 backdrop-blur-lg p-4 sm:p-6 flex flex-col items-center">
-          <img src="assets/images/Logos/codeforces.png" class="w-12 sm:w-16 h-12 sm:h-16 mb-3" alt="Codeforces Logo" />
-          <h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 flex items-center gap-2">
-            <a href="https://codeforces.com/profile/khun_" target="_blank" rel="noopener" title="Codeforces Profile"
-              class="text-cyan-300 hover:underline">Codeforces</a>
-          </h3>
-          <div class="flex flex-col sm:flex-row justify-between items-center w-full mb-2 gap-2">
-            <p class="text-base sm:text-lg text-cyan-100">Current Rank: <span id="cf-rank"
-                class="font-semibold text-blue-400">Loading...</span></p>
-            <p class="text-sm sm:text-base text-cyan-100">Best: <span id="cf-best"
-                class="font-semibold">Loading...</span></p>
-          </div>
-          <div class="w-full h-[160px] mt-2 flex justify-center items-center">
-            <canvas id="cfChart" class="w-full"></canvas>
-          </div>
-        </div>
-        <!-- AtCoder -->
-        <div
-          class="rounded-2xl shadow-xl border border-green-400/30 bg-[#232946]/70 backdrop-blur-lg p-8 flex flex-col items-center">
-          <img src="assets/images/Logos/atcoder.png" class="w-16 h-16 mb-4" alt="AtCoder Logo" />
-          <h3 class="text-2xl font-bold mb-2 flex items-center gap-2">
-            <a href="https://atcoder.jp/users/bee_" target="_blank" rel="noopener" title="AtCoder Profile"
-              class="text-green-300 hover:underline">AtCoder</a>
-          </h3>
-          <div class="flex justify-between items-center w-full mb-2">
-            <p class="text-lg text-green-100">Current Rank: <span id="ac-rank"
-                class="font-semibold text-green-400">Loading...</span></p>
-            <p class="text-base text-green-100">Best: <span id="ac-best" class="font-semibold">Loading...</span></p>
-          </div>
-          <div class="w-full h-[160px] mt-2 flex justify-center items-center">
-            <canvas id="acChart" class="w-full"></canvas>
-          </div>
-        </div>
-        <!-- CodeChef -->
-        <div
-          class="rounded-2xl shadow-xl border border-yellow-400/30 bg-[#232946]/70 backdrop-blur-lg p-8 flex flex-col items-center">
-          <img src="assets/images/Logos/codechef.png" class="w-16 h-16 mb-4" alt="CodeChef Logo" />
-          <h3 class="text-2xl font-bold mb-2 flex items-center gap-2">
-            <a href="https://www.codechef.com/users/anup101" target="_blank" rel="noopener" title="CodeChef Profile"
-              class="text-yellow-300 hover:underline">CodeChef</a>
-          </h3>
-          <div class="flex justify-between items-center w-full mb-2">
-            <p class="text-lg text-yellow-100">Current Rank: <span id="cc-rank"
-                class="font-semibold text-yellow-400">Loading...</span></p>
-            <p class="text-base text-yellow-100">Best: <span id="cc-best" class="font-semibold">Loading...</span></p>
-          </div>
-          <div class="w-full h-[160px] mt-2 flex justify-center items-center">
-            <canvas id="ccChart" class="w-full"></canvas>
-          </div>
-        </div>
-      </div>
-      <!-- Highlights Section -->
-      <div class="mt-8 sm:mt-16 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8">
-        <div
-          class="bg-[#232946]/60 rounded-2xl p-4 sm:p-8 shadow-lg border border-cyan-400/20 backdrop-blur-md flex flex-col justify-center">
-          <h4 class="text-cyan-200 text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-center">Highlights</h4>
-          <ul class="list-disc list-inside text-cyan-100 text-base sm:text-lg space-y-2 mx-auto text-left max-w-md">
-            <li>ICPC Dhaka Regionalist 2024</li>
-            <li>Top 25% in AtCoder Beginner Contests</li>
-            <li>Top 20% in CodeChef Starters</li>
-          </ul>
-        </div>
-        <div
-          class="bg-[#232946]/60 rounded-2xl p-4 sm:p-8 shadow-lg border border-green-400/20 backdrop-blur-md flex flex-col justify-center">
-          <h4 class="text-green-200 text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-center">Skills</h4>
-          <div class="flex flex-wrap gap-2 sm:gap-3 justify-center">
-            <span
-              class="bg-green-700/40 text-green-200 px-3 sm:px-4 py-1 rounded-full font-semibold text-sm sm:text-base">C++</span>
-            <span class="bg-green-700/40 text-green-200 px-4 py-1 rounded-full font-semibold text-base">Competitive
-              Programming</span>
-            <span class="bg-green-700/40 text-green-200 px-4 py-1 rounded-full font-semibold text-base">Data Structures
-              & Algorithms</span>
-            <span class="bg-green-700/40 text-green-200 px-4 py-1 rounded-full font-semibold text-base">Problem
-              Solving</span>
-            <span class="bg-green-700/40 text-green-200 px-4 py-1 rounded-full font-semibold text-base">DSA</span>
-            <span class="bg-green-700/40 text-green-200 px-4 py-1 rounded-full font-semibold text-base">STL</span>
-            <span
-              class="bg-green-700/40 text-green-200 px-4 py-1 rounded-full font-semibold text-base">Algorithms</span>
-            <span class="bg-green-700/40 text-green-200 px-4 py-1 rounded-full font-semibold text-base">Math</span>
-            <span class="bg-green-700/40 text-green-200 px-4 py-1 rounded-full font-semibold text-base">Teamwork</span>
-          </div>
-        </div>
-      </div>
-      <!-- ICPC Experience Full Section -->
-      <section class="mt-8 sm:mt-16">
-        <div
-          class="bg-[#232946]/60 rounded-2xl p-4 sm:p-8 shadow-lg border border-yellow-400/20 flex flex-col items-center justify-center backdrop-blur-md">
-          <div class="w-full aspect-video rounded-lg sm:rounded-xl overflow-hidden mb-4 sm:mb-6">
-            <img src="assets/images/background2.jpg" alt="ICPC Experience"
-              class="w-full h-full object-cover brightness-75" />
-          </div>
-          <h4 class="text-yellow-200 text-xl sm:text-2xl font-bold mb-2 sm:mb-3 text-center">ICPC Experience</h4>
-          <p class="text-yellow-100 text-base sm:text-lg text-center max-w-2xl">Represented my university at the ICPC
-            Dhaka Regional
-            2024. Collaborated with a talented team, solved challenging problems under pressure, and gained invaluable
-            experience in competitive programming at an international level.</p>
-        </div>
-      </section>
 
-      <!-- Problem Setter Experience Section -->
-      <section class="mt-8 sm:mt-16">
-        <div
-          class="bg-[#232946]/60 rounded-2xl p-4 sm:p-8 shadow-lg border border-yellow-400/20 flex flex-col items-center justify-center backdrop-blur-md">
-          <div class="w-full aspect-video rounded-lg sm:rounded-xl overflow-hidden mb-4 sm:mb-6">
-            <img src="assets/images/takeoff_uta_celebration.jpg" alt="Takeoff UTA Celebration"
-              class="w-full h-full object-cover brightness-75" />
-          </div>
-          <h4 class="text-yellow-200 text-xl sm:text-2xl font-bold mb-2 sm:mb-3 text-center">Problem Setter Experience
-          </h4>
-          <p class="text-yellow-100 text-base sm:text-lg text-center max-w-2xl">I have contributed as a problem setter
-            for my
-            university's flagship programming contests, "Takeoff" and "Unlock the Algorithm." My focus is on creating
-            educational, challenging, and fun problems that help students grow as programmers. The contests have seen
-            enthusiastic participation and have become a highlight of our university's programming culture.</p>
-        </div>
-      </section>
+  <main>
+    <section class="page-hero section-wrap">
+      <div class="container page-hero-grid">
+        <div class="reveal"><p class="eyebrow"><span class="eyebrow-dot"></span> The work behind the work</p><h1>Achievements that made me <span class="gradient-text">better.</span></h1><p class="page-lede">Every contest is a snapshot of practice, persistence, and a little bit of luck. These are the milestones I’m proud to carry forward.</p></div>
+        <div class="page-hero-stamp reveal reveal-delay-1"><span class="stamp-ring">2024</span><strong>ICPC<br>Asia Dhaka</strong><small>Regionalist</small></div>
+      </div>
     </section>
-    <footer
-      class="bg-gradient-to-r from-blue-900 via-slate-800 to-pink-900 text-slate-200 py-6 text-center shadow-xl mt-12 rounded-2xl">
-      <p>&copy; 2025 Anup Barman. All Rights Reserved.</p>
-    </footer>
-  </main>
-  <script src="assets/js/main.js"></script>
-</body>
 
+    <section class="section-wrap section-space section-tint">
+      <div class="container">
+        <div class="stats-strip reveal" aria-label="Achievement summary">
+          <div class="summary-stat"><strong>2024</strong><span>ICPC Dhaka Regional</span></div>
+          <div class="summary-stat"><strong>2<span class="stat-star">★</span></strong><span>CodeChef stars</span></div>
+          <div class="summary-stat"><strong>Top 25%</strong><span>AtCoder Beginner Contests</span></div>
+          <div class="summary-stat"><strong>Top 20%</strong><span>CodeChef Starters</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-wrap section-space">
+      <div class="container">
+        <div class="section-heading section-heading-row reveal"><div><p class="eyebrow">Competitive platforms</p><h2>Where I practice.</h2></div><p class="section-intro">Regular contests are a way to keep the fundamentals sharp—and to keep learning from the problems that humble me.</p></div>
+        <div class="platform-grid">
+          <article class="platform-card reveal">
+            <div class="platform-card-top"><div class="platform-logo platform-logo-cf"><img src="assets/images/Logos/codeforces.png" alt="Codeforces logo" width="160" height="160"></div><span class="platform-label">Algorithms</span></div>
+            <h3>Codeforces</h3><p class="platform-handle">@khun_</p><p>Sharpening problem solving through regular rated contests, editorials, and post-contest reflection.</p><a class="text-link" href="https://codeforces.com/profile/khun_" target="_blank" rel="noopener">Open profile <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="platform-card reveal reveal-delay-1">
+            <div class="platform-card-top"><div class="platform-logo platform-logo-ac"><img src="assets/images/Logos/atcoder.png" alt="AtCoder logo" width="280" height="280"></div><span class="platform-label">Consistency</span></div>
+            <h3>AtCoder</h3><p class="platform-handle">@bee_</p><p>Building a steady practice rhythm through Beginner Contests and a love for elegant observations.</p><a class="text-link" href="https://atcoder.jp/users/bee_" target="_blank" rel="noopener">Open profile <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="platform-card reveal reveal-delay-2">
+            <div class="platform-card-top"><div class="platform-logo platform-logo-cc"><img src="assets/images/Logos/codechef.png" alt="CodeChef logo" width="512" height="512"></div><span class="platform-label">Growth</span></div>
+            <h3>CodeChef</h3><p class="platform-handle">@anup101</p><p>Using long-form contests to test consistency, speed, and the ability to learn from mistakes.</p><a class="text-link" href="https://www.codechef.com/users/anup101" target="_blank" rel="noopener">Open profile <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-wrap section-space section-tint">
+      <div class="container">
+        <div class="section-heading reveal"><p class="eyebrow">Beyond a leaderboard</p><h2>Experiences that shaped me.</h2></div>
+        <div class="story-grid">
+          <article class="story-card reveal">
+            <div class="story-image"><img src="assets/images/background2.jpg" alt="ICPC Asia Dhaka Regional 2024 team entrance" loading="lazy" width="4000" height="3000"><span class="image-tag">ICPC · 2024</span></div>
+            <div class="story-content"><p class="card-index">Competition experience</p><h3>ICPC Dhaka Regionalist</h3><p>Representing Daffodil International University at the ICPC Asia Dhaka Regional was a lesson in collaboration, resilience, and staying composed when a contest moves faster than expected.</p><ul class="check-list"><li>Worked as part of a university team</li><li>Solved problems under a live contest clock</li><li>Learned the value of clear communication</li></ul></div>
+          </article>
+          <article class="story-card reveal reveal-delay-1">
+            <div class="story-image"><img src="assets/images/takeoff_uta_celebration.jpg" alt="Team celebrating a university programming contest" loading="lazy" width="1280" height="960"><span class="image-tag">Community · Onwards</span></div>
+            <div class="story-content"><p class="card-index">Problem setting experience</p><h3>Takeoff &amp; Unlock the Algorithm</h3><p>I have contributed as a problem setter for university contests, focusing on problems that are challenging but still teach an idea clearly. I enjoy creating the moment where a contestant sees the pattern.</p><ul class="check-list"><li>Designing educational, contest-ready problems</li><li>Balancing difficulty with approachable themes</li><li>Supporting a stronger campus programming culture</li></ul></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-wrap section-space">
+      <div class="container skills-layout">
+        <div class="section-heading reveal"><p class="eyebrow">Technical foundation</p><h2>Tools for thinking.</h2><p class="section-intro">The language changes. The habit of breaking a problem into manageable parts does not.</p></div>
+        <div class="skills-panel reveal reveal-delay-1">
+          <div class="skill-group"><span class="skill-group-label">Core</span><div class="skill-pills"><span>C++</span><span>Data structures</span><span>Algorithms</span><span>STL</span><span>Graph theory</span><span>Dynamic programming</span></div></div>
+          <div class="skill-group"><span class="skill-group-label">Practice</span><div class="skill-pills"><span>Problem solving</span><span>Debugging</span><span>Contest strategy</span><span>Editorial analysis</span><span>Teamwork</span></div></div>
+          <div class="skill-group"><span class="skill-group-label">Community</span><div class="skill-pills"><span>Problem setting</span><span>Mentoring</span><span>Technical writing</span><span>Collaboration</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-wrap section-space contact-section">
+      <div class="container">
+        <div class="contact-panel reveal"><div class="contact-copy"><p class="eyebrow">The next problem could be ours</p><h2>Want to practice, collaborate, or just talk algorithms?</h2><p>My inbox is open for thoughtful questions, interesting contest stories, and good problems.</p></div><div class="contact-actions"><a class="button button-primary" href="mailto:barman2305101868@diu.edu.bd">Send an email <span aria-hidden="true">↗</span></a><button class="copy-email" type="button" data-copy-email="barman2305101868@diu.edu.bd"><span class="copy-icon" aria-hidden="true">▣</span> Copy email address</button><p class="contact-note">Usually replies within a few days.</p></div><div class="contact-decoration" aria-hidden="true">&lt;/&gt;</div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner"><div><a class="brand footer-brand" href="index.html"><span class="brand-mark" aria-hidden="true">AB</span><span class="brand-copy"><strong>Anup Barman</strong><small>Competitive programmer</small></span></a><p class="footer-note">Learning deeply. Solving carefully. Sharing generously.</p></div><div class="footer-links"><div><span class="footer-label">Explore</span><a href="index.html">Home</a><a href="achievements.html">Achievements</a><a href="gallery.html">Gallery</a></div><div><span class="footer-label">Find me</span><a href="https://github.com/killerB-from101" target="_blank" rel="noopener">GitHub ↗</a><a href="https://codeforces.com/profile/khun_" target="_blank" rel="noopener">Codeforces ↗</a><a href="https://www.instagram.com/anupx_bee/" target="_blank" rel="noopener">Instagram ↗</a></div></div></div>
+    <div class="container footer-bottom"><span>© <span data-year>2026</span> Anup Barman</span><span>Built with curiosity <span class="footer-heart" aria-hidden="true">✦</span></span></div>
+  </footer>
+
+  <div class="toast" role="status" aria-live="polite" data-toast></div>
+  <script src="assets/js/site.js"></script>
+</body>
 </html>

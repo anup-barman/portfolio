@@ -1,174 +1,199 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-
+<!doctype html>
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Anup Barman - Competitive Programmer</title>
-  <meta name="description"
-    content="Portfolio of Anup Barman, a competitive programmer and Computer Science student at Daffodil International University." />
-  <meta name="keywords"
-    content="Competitive Programming, Portfolio, Anup Barman, Coder, Developer, Problem Solver, ICPC, Codeforces, AtCoder, CodeChef" />
-
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Google Fonts: Inter -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@700&display=swap"
-    rel="stylesheet" />
-
-  <!-- Removed all inline styles for modularity; handled in main.css -->
-  <!-- Removed old styles.css for consistency; use only main.css -->
-  <link rel="stylesheet" href="assets/css/main.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Anup Barman is a competitive programmer, problem solver, and Computer Science student at Daffodil International University.">
+  <meta name="keywords" content="Anup Barman, competitive programming, Codeforces, AtCoder, CodeChef, ICPC, problem setter, portfolio">
+  <title>Anup Barman — Competitive Programmer</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script>
+    // Set the saved theme before the page paints to avoid a flash of the wrong palette.
+    (() => {
+      const saved = localStorage.getItem('anup-theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.dataset.theme = saved || (prefersDark ? 'dark' : 'light');
+    })();
+  </script>
 </head>
+<body data-page="home">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Anup Barman home">
+        <span class="brand-mark" aria-hidden="true">AB</span>
+        <span class="brand-copy">
+          <strong>Anup Barman</strong>
+          <small>Competitive programmer</small>
+        </span>
+      </a>
 
-<body class="text-slate-100 bg-gradient-to-br from-[#181f2a] via-[#232946] to-[#181f2a] min-h-screen">
-  <!-- Headeoner & Navigation -->
-  <header class="bg-[#181f2a]/90 backdrop-blur-lg sticky top-0 z-50 shadow-lg border-b border-cyan-400/60">
-    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="index.html" class="text-2xl font-bold text-cyan-200"></a>
-      <div class="hidden md:flex space-x-8 items-center">
-        <a href="index.html" class="nav-link text-cyan-200 hover:text-cyan-400">Home</a>
-        <a href="achievements.html" class="nav-link text-cyan-200 hover:text-cyan-400">Achievements</a>
-        <a href="gallery.html" class="nav-link text-cyan-200 hover:text-cyan-400">Gallery</a>
-      </div>
-      <!-- Mobile Menu Button -->
-      <button id="mobile-menu-button" class="md:hidden">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
-          </path>
-        </svg>
+      <button class="mobile-menu-button" type="button" aria-label="Open navigation" aria-expanded="false" data-mobile-menu-button>
+        <span></span><span></span><span></span>
       </button>
-    </nav>
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-      <a href="index.html" class="block py-2 text-cyan-200 hover:text-cyan-400 nav-link">Home</a>
-      <a href="achievements.html" class="block py-2 text-cyan-200 hover:text-cyan-400 nav-link">Achievements</a>
-      <a href="gallery.html" class="block py-2 text-cyan-200 hover:text-cyan-400 nav-link">Gallery</a>
+
+      <nav class="primary-nav" aria-label="Primary navigation" data-mobile-menu>
+        <a class="nav-link is-active" href="index.html" aria-current="page">Home</a>
+        <a class="nav-link" href="achievements.html">Achievements</a>
+        <a class="nav-link" href="gallery.html">Gallery</a>
+        <a class="nav-link nav-link-contact" href="#contact">Let’s connect <span aria-hidden="true">↗</span></a>
+      </nav>
+
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" title="Switch to dark mode">
+        <span class="theme-icon theme-icon-sun" aria-hidden="true">☼</span>
+        <span class="theme-icon theme-icon-moon" aria-hidden="true">◐</span>
+      </button>
     </div>
   </header>
 
-  <main class="container mx-auto px-6">
-    <!-- Minimal Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
-      <img src="assets/images/background1.jpg" alt="Background"
-        class="absolute inset-0 w-full h-full object-cover opacity-40 pointer-events-none z-0" />
-      <div
-        class="relative z-10 flex flex-col md:flex-row items-center justify-between px-4 py-12 md:py-24 gap-8 w-full">
-        <div class="flex-1 flex flex-col items-center md:items-start text-left">
-          <h1
-            class="text-5xl md:text-7xl font-extrabold mb-6 animate-slide-in drop-shadow-lg bg-gradient-to-r from-yellow-200 via-pink-200 to-cyan-200 bg-clip-text text-transparent"
-            style="font-family: 'Oswald', 'Inter', Arial, sans-serif; letter-spacing:0.01em;">
-            <span style="font-family: 'Compact Typewriter', 'Courier New', Courier, monospace; font-weight: 900;"></span>
-              <span style="font-family: 'JetBrains Mono', monospace; font-weight: 900;">
-                Anup <span>Barman</span>
-              </span>
-            </span>
-          </h1>
-          <p id="typed-text"
-            class="typed-text text-2xl md:text-4xl font-extrabold mb-4 animate-fade-in delay-200 drop-shadow h-14 tracking-wide bg-gradient-to-r from-yellow-100 via-pink-200 to-cyan-100 bg-clip-text text-transparent">
-          </p>
+  <main>
+    <section class="hero section-wrap">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> Competitive programming · problem solving</p>
+          <h1>I turn hard problems into <span class="gradient-text">clear solutions.</span></h1>
+          <p class="hero-lede">I’m Anup Barman, a Computer Science student and competitive programmer who enjoys learning deeply, thinking carefully, and helping others get better at the craft.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="achievements.html">Explore my journey <span aria-hidden="true">→</span></a>
+            <a class="button button-quiet" href="gallery.html">See the moments <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="hero-facts" aria-label="Quick facts">
+            <div class="hero-fact"><strong>ICPC</strong><span>Dhaka Regionalist ’24</span></div>
+            <div class="hero-fact"><strong>C++</strong><span>DSA &amp; problem solving</span></div>
+            <div class="hero-fact"><strong>DIU</strong><span>Computer Science student</span></div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal reveal-delay-1">
+          <div class="hero-ring hero-ring-one" aria-hidden="true"></div>
+          <div class="hero-ring hero-ring-two" aria-hidden="true"></div>
+          <div class="hero-photo-card">
+            <div class="photo-chrome" aria-hidden="true"><span></span><span></span><span></span><small>anup.cpp</small></div>
+            <img src="assets/images/pfp.jpg" alt="Portrait of Anup Barman" width="1536" height="1540">
+            <div class="photo-overlay">
+              <span>Currently solving</span>
+              <strong>one more problem<span class="cursor">_</span></strong>
+            </div>
+          </div>
+          <div class="floating-badge floating-badge-top"><span class="badge-icon">✦</span><span><strong>Problem setter</strong><small>Takeoff · Unlock the Algorithm</small></span></div>
+          <div class="event-card">
+            <img src="assets/images/background2.jpg" alt="ICPC Asia Dhaka Regional entrance" loading="lazy" width="4000" height="3000">
+            <div class="event-card-copy"><span>Representing DIU at</span><strong>ICPC Dhaka Regional</strong><small>2024 · Dhaka, Bangladesh</small></div>
+          </div>
         </div>
       </div>
     </section>
-    <!-- About Me Section -->
-    <section id="about"
-      class="py-12 bg-gradient-to-br from-[#232946] to-[#181f2a] rounded-2xl shadow-xl my-8 border border-[#232946]/60">
-      <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-8 p-6 md:p-8">
-        <div class="flex-1 flex flex-col justify-center">
-          <h2 class="text-3xl md:text-4xl font-bold text-cyan-200 mb-4">About Me</h2>
-          <p class="text-lg text-cyan-100 leading-relaxed mb-4">I'm Anup Barman, a passionate competitive programmer and
-            a Computer Science and Engineering student at Daffodil International University. My journey in programming
-            began with
-            curiosity and quickly grew into a deep passion for solving challenging problems and building a strong
-            foundation in algorithms and data structures.</p>
-          <p class="text-lg text-cyan-100 leading-relaxed mb-4">I have represented my university as an <span
-              class="font-bold text-yellow-200">ICPC Dhaka Regionalist 2024</span>, and have been a problem setter for
-            flagship contests like <span class="font-bold text-pink-200">Takeoff</span> and <span
-              class="font-bold text-pink-200">Unlock the Algorithm</span>. I love sharing knowledge and helping others
-            grow in the programming community.</p>
-          <p class="text-lg text-cyan-100 leading-relaxed">Beyond coding, I enjoy exploring new technologies,
-            collaborating on projects, and capturing memories from my competitive programming journey. My goal is to
-            keep learning, growing, and contributing to the tech world.</p>
+
+    <section class="section-wrap section-space" id="about">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">A little about me</p>
+          <h2>Curiosity is where every <span class="gradient-text">solution</span> starts.</h2>
         </div>
-        <div class="flex-1 flex justify-center md:justify-end max-w-md">
-          <img src="assets/images/pfp.jpg" alt="Profile"
-            class="w-72 h-80 object-cover rounded-2xl shadow-2xl border-4 border-cyan-200 bg-[#232946]/80" />
+        <div class="about-grid">
+          <div class="about-copy reveal">
+            <p class="lead-copy">My programming journey began with curiosity and grew into a habit of showing up, thinking deeply, and learning from every failed attempt.</p>
+            <p>I’m currently studying Computer Science and Engineering at Daffodil International University. Competitive programming has given me a place to practice reasoning under pressure, collaborate with talented teammates, and turn abstract ideas into working solutions.</p>
+            <p>Beyond contests, I enjoy creating problems that make complex ideas approachable. I’ve contributed as a problem setter for university contests including <strong>Takeoff</strong> and <strong>Unlock the Algorithm</strong>.</p>
+            <div class="principle-list">
+              <div class="principle"><span>01</span><div><strong>Stay curious</strong><p>Ask better questions before reaching for a faster answer.</p></div></div>
+              <div class="principle"><span>02</span><div><strong>Keep it clear</strong><p>Good solutions should be understandable, not just correct.</p></div></div>
+              <div class="principle"><span>03</span><div><strong>Share the process</strong><p>Growth compounds when knowledge moves between people.</p></div></div>
+            </div>
+          </div>
+          <div class="about-visual reveal reveal-delay-1">
+            <div class="about-image-card">
+              <img src="assets/images/background1.jpg" alt="Anup Barman at the ICPC Asia Dhaka Regional 2024" loading="lazy" width="4032" height="3024">
+              <div class="about-image-caption"><span>01 / 04</span><strong>Representing Daffodil International University</strong></div>
+            </div>
+            <div class="about-note"><span class="note-line"></span><span>Learning in public, one contest at a time.</span></div>
+          </div>
         </div>
       </div>
     </section>
-    <!-- Contact Me Section -->
-    <section id="contact"
-      class="py-20 bg-gradient-to-br from-[#181f2a] to-[#232946] rounded-2xl shadow-xl my-8 border border-[#232946]/60">
-      <div class="max-w-2xl mx-auto text-center p-8 md:p-12">
-        <h2 class="text-3xl md:text-4xl font-bold text-cyan-200 mb-4">Contact Me</h2>
-        <p class="text-lg text-cyan-100 mb-8">I'm always open to discussing new opportunities, interesting problems, or
-          just connecting with fellow tech enthusiasts. Find me on these platforms:</p>
-        <div class="flex justify-center flex-wrap gap-6 mt-8">
-          <!-- GitHub -->
-          <a href="https://github.com/killerB-from101" class="text-cyan-300 hover:text-cyan-400" target="_blank"
-            rel="noopener" title="GitHub">
-            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M12 2C6.477 2 2 6.477 2 12c0 4.425 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.942.359.308.678.92.678 1.852 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" />
-            </svg>
-          </a>
-          <!-- Gmail -->
-          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=barman2305101868@diu.edu.bd"
-            class="text-cyan-300 hover:text-cyan-400" target="_blank" rel="noopener" title="Gmail">
-            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M2.01 4.857A2 2 0 014 4h16a2 2 0 011.99 0.857L12 13.414 2.01 4.857zM2 6.697V18a2 2 0 002 2h16a2 2 0 002-2V6.697l-8 7.2-8-7.2z" />
-            </svg>
-          </a>
-          <!-- Instagram -->
-          <a href="https://instagram.com/anupx_bee" class="text-pink-400 hover:text-pink-500" target="_blank"
-            rel="noopener" title="Instagram">
-            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zm4.25 3.25a5.25 5.25 0 1 1 0 10.5 5.25 5.25 0 0 1 0-10.5zm0 1.5a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5zm5.25.75a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
-            </svg>
-          </a>
-          <!-- Facebook -->
-          <a href="https://facebook.com/exorcist.anup" class="text-blue-400 hover:text-blue-500" target="_blank"
-            rel="noopener" title="Facebook">
-            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M22 12c0-5.522-4.477-10-10-10S2 6.478 2 12c0 5.005 3.657 9.128 8.438 9.877v-6.987h-2.54v-2.89h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.242 0-1.63.771-1.63 1.562v1.875h2.773l-.443 2.89h-2.33v6.987C18.343 21.128 22 17.005 22 12z" />
-            </svg>
-          </a>
-          <!-- Telegram -->
-          <a href="https://t.me/anupx_bee" class="text-cyan-400 hover:text-cyan-500" target="_blank" rel="noopener"
-            title="Telegram">
-            <svg class="w-8 h-8" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="120" cy="120" r="120" fill="#229ED9" />
-              <path
-                d="M175.6 76.7c2.2-9.1-7.1-8.1-14.2-5.9l-98.7 32.1c-6.7 2.1-6.6 6.5-1.1 8.1l25.2 7.9 9.7 30.2c1.2 3.2 2.1 4.4 4.3 4.4 2.2 0 3.1-0.8 4.3-3.2l13.1-26.6 27.2 20.1c5 2.8 8.6 1.3 9.8-4.6l17.7-62.5zm-70.2 44.7l54.2-34.1c2.6-1.6 5-0.7 3.1 1.1l-46.1 41.7-2.1 23.1-9.1-31.8z"
-                fill="#fff" />
-            </svg>
-          </a>
-          <!-- Discord -->
-          <a href="https://discord.com/users/killerb9079" class="text-indigo-400 hover:text-indigo-500" target="_blank"
-            rel="noopener" title="Discord">
-            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M20.317 4.3698a19.7913 19.7913 0 0 0-4.8851-1.5152.0741.0741 0 0 0-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 0 0-.0785-.0371c-1.6977.3242-3.3454.8772-4.8852 1.5152a.0699.0699 0 0 0-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 0 0 .0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 0 0 .0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 0 0-.0416-.1047c-.6528-.2476-1.2743-.5492-1.8722-.8923a.077.077 0 0 1-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 0 1 .0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 0 1 .0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 0 1-.0066.1276c-.598.3432-1.2205.6448-1.8733.8924a.0766.0766 0 0 0-.0406.1046c.3609.698.7724 1.3628 1.225 1.9932a.076.076 0 0 0 .0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 0 0 .0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6601a.061.061 0 0 0-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0957 2.1568 2.4189 0 1.3333-.9555 2.419-2.1569 2.419zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0957 2.1568 2.4189 0 1.3333-.946 2.419-2.1568 2.419z" />
-            </svg>
-          </a>
+
+    <section class="section-wrap section-space section-tint" id="focus">
+      <div class="container">
+        <div class="section-heading section-heading-row reveal">
+          <div><p class="eyebrow">What I bring to the table</p><h2>A problem solver’s toolkit.</h2></div>
+          <p class="section-intro">The best contests are a blend of mathematical thinking, technical depth, and calm collaboration.</p>
+        </div>
+        <div class="focus-grid">
+          <article class="focus-card reveal">
+            <div class="focus-icon focus-icon-purple" aria-hidden="true">&lt;/&gt;</div>
+            <p class="card-index">01 / Algorithms</p>
+            <h3>Make the complex feel simple.</h3>
+            <p>I enjoy finding the key observation behind a problem, then translating it into an elegant, efficient solution.</p>
+            <div class="card-tags"><span>Data structures</span><span>Graphs</span><span>Math</span></div>
+          </article>
+          <article class="focus-card reveal reveal-delay-1">
+            <div class="focus-icon focus-icon-mint" aria-hidden="true">✦</div>
+            <p class="card-index">02 / Contest craft</p>
+            <h3>Think clearly under pressure.</h3>
+            <p>Contests reward more than raw speed. They reward pattern recognition, prioritization, and knowing when to slow down.</p>
+            <div class="card-tags"><span>Strategy</span><span>Debugging</span><span>Teamwork</span></div>
+          </article>
+          <article class="focus-card reveal reveal-delay-2">
+            <div class="focus-icon focus-icon-peach" aria-hidden="true">↗</div>
+            <p class="card-index">03 / Community</p>
+            <h3>Leave the problem better.</h3>
+            <p>Teaching and problem setting are ways to make programming culture stronger—one thoughtful explanation at a time.</p>
+            <div class="card-tags"><span>Problem setting</span><span>Mentoring</span><span>Sharing</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-wrap section-space" id="journey">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Selected highlights</p>
+          <h2>Moments that kept me going.</h2>
+        </div>
+        <div class="highlight-grid">
+          <article class="highlight-card highlight-card-featured reveal">
+            <div class="highlight-image"><img src="assets/images/background2.jpg" alt="Team at ICPC Asia Dhaka Regional 2024" loading="lazy" width="4000" height="3000"></div>
+            <div class="highlight-content"><p class="card-index">Competition · 2024</p><h3>ICPC Dhaka Regionalist</h3><p>Represented Daffodil International University at the ICPC Asia Dhaka Regional and learned what sustained teamwork feels like under a real contest clock.</p><a class="text-link" href="achievements.html">Read the full story <span aria-hidden="true">↗</span></a></div>
+          </article>
+          <article class="highlight-card reveal reveal-delay-1">
+            <div class="highlight-number">2<span>★</span></div>
+            <p class="card-index">CodeChef</p><h3>Two-star competitor</h3><p>Building consistency through regular contests, editorial reading, and lots of thoughtful retries.</p><a class="text-link" href="https://www.codechef.com/users/anup101" target="_blank" rel="noopener">View profile <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="highlight-card reveal reveal-delay-2">
+            <div class="highlight-number">∞<span>↗</span></div>
+            <p class="card-index">Problem setting</p><h3>Sharing the craft</h3><p>Creating problems and explanations that help other students find their own way through a challenge.</p><a class="text-link" href="achievements.html">See contributions <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-wrap section-space contact-section" id="contact">
+      <div class="container">
+        <div class="contact-panel reveal">
+          <div class="contact-copy"><p class="eyebrow">Have a problem worth solving?</p><h2>Let’s talk about algorithms, contests, or the next big idea.</h2><p>I’m always happy to connect with fellow programmers, students, and people who enjoy building things.</p></div>
+          <div class="contact-actions">
+            <a class="button button-primary" href="mailto:barman2305101868@diu.edu.bd">Send an email <span aria-hidden="true">↗</span></a>
+            <button class="copy-email" type="button" data-copy-email="barman2305101868@diu.edu.bd"><span class="copy-icon" aria-hidden="true">▣</span> Copy email address</button>
+            <p class="contact-note">Usually replies within a few days.</p>
+          </div>
+          <div class="contact-decoration" aria-hidden="true">&lt;/&gt;</div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-gradient-to-r from-blue-900 via-slate-800 to-pink-900 text-slate-200 py-6 text-center shadow-xl">
-    <p>&copy; 2025 Anup Barman. All Rights Reserved.</p>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div><a class="brand footer-brand" href="index.html"><span class="brand-mark" aria-hidden="true">AB</span><span class="brand-copy"><strong>Anup Barman</strong><small>Competitive programmer</small></span></a><p class="footer-note">Learning deeply. Solving carefully. Sharing generously.</p></div>
+      <div class="footer-links"><div><span class="footer-label">Explore</span><a href="index.html">Home</a><a href="achievements.html">Achievements</a><a href="gallery.html">Gallery</a></div><div><span class="footer-label">Find me</span><a href="https://github.com/killerB-from101" target="_blank" rel="noopener">GitHub ↗</a><a href="https://codeforces.com/profile/khun_" target="_blank" rel="noopener">Codeforces ↗</a><a href="https://www.instagram.com/anupx_bee/" target="_blank" rel="noopener">Instagram ↗</a></div></div>
+    </div>
+    <div class="container footer-bottom"><span>© <span data-year>2026</span> Anup Barman</span><span>Built with curiosity <span class="footer-heart" aria-hidden="true">✦</span></span></div>
   </footer>
 
-  <script src="assets/js/main.js"></script>
+  <div class="toast" role="status" aria-live="polite" data-toast></div>
+  <script src="assets/js/site.js"></script>
 </body>
-
 </html>
